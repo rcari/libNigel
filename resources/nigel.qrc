@@ -1,0 +1,15 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/nigel">
+	<file>images/icons/asset.png</file>
+	<file>images/icons/element.instance.png</file>
+	<file>images/icons/element.png</file>
+	<file>images/icons/library.png</file>
+	<file>images/icons/model.png</file>
+	<file>images/icons/project.png</file>
+	<file>images/icons/scene.node.png</file>
+	<file>images/icons/transformation.matrix.png</file>
+	<file>images/icons/transformation.rotate.png</file>
+	<file>images/icons/transformation.scale.png</file>
+	<file>images/icons/transformation.translate.png</file>
+</qresource>
+</RCC>

@@ -5,17 +5,13 @@ PROJECT ( Nigel C CXX )
 SET ( Nigel_Version "0.0.1" )
 
 # Kore dependency...
-IF( KORE_FOUND )
-	INCLUDE_DIRECTORIES( ${KORE_INCLUDE_DIRS} )
-ELSE()
-	MESSAGE( FATAL_ERROR "Unresolved dependency to the Kore module" ) 
-ENDIF( KORE_FOUND )
+#IF( NOT KORE_FOUND )
+#	MESSAGE( FATAL_ERROR "Unresolved dependency to the Kore module" )
+#ENDIF( NOT KORE_FOUND )
 
-# Headers
-INCLUDE_DIRECTORIES ( inc )
-
-# Template files
-INCLUDE_DIRECTORIES ( ${CMAKE_CURRENT_SOURCE_DIR} )
+# Configuration files
+INCLUDE( build/ModuleInfos.cmake )
+INCLUDE_DIRECTORIES( ${NIGEL_INCLUDES} )
 
 ### ------------- Nigel -------------
 SET ( Nigel_SRCS src/NigelApplication.cpp )
@@ -65,17 +61,18 @@ ELSE ( MSVC )
 ENDIF ( MSVC )
 
 # Target library: Nigel
-ADD_LIBRARY ( Nigel SHARED ${Nigel_HDRS} ${Nigel_MOC_HDRS} ${Nigel_SRCS} ${Nigel_MOC_SRCS} )
+ADD_LIBRARY ( ${NIGEL_LIBRARY} SHARED ${Nigel_HDRS} ${Nigel_MOC_HDRS} ${Nigel_SRCS} ${Nigel_MOC_SRCS} )
 
 # Mac OS specifics
 IF ( APPLE )
 	SET_TARGET_PROPERTIES ( 
-		Nigel PROPERTIES
+		${NIGEL_LIBRARY} PROPERTIES
 		COMPILE_DEFINITIONS "_K_BUILD_NIGEL;_NIGEL_VERSION=\"${Nigel_Version}\";_K_MACX;${DEBUG_DEFINES}"
 		COMPILE_FLAGS -fno-common
-		LINK_FLAGS "-undefined dynamic_lookup"
+		#LINK_FLAGS "-undefined dynamic_lookup"
 		VERSION ${Nigel_Version}
 	)
+	TARGET_LINK_LIBRARIES ( ${NIGEL_LIBRARY} ${KORE_LIBRARY} ${QT_QTCORE_LIBRARY} )
 # Windows specifics
 ELSEIF ( WIN32 )
 	# Visual Studio compiler specifics
@@ -84,7 +81,7 @@ ELSEIF ( WIN32 )
 		SOURCE_GROUP ( "Source Files" FILES ${Nigel_SRCS} )
 		SOURCE_GROUP ( "Moc Files" FILES ${Nigel_MOC_SRCS} )
 		SET_TARGET_PROPERTIES ( 
-			Nigel PROPERTIES
+			${NIGEL_LIBRARY} PROPERTIES
 			COMPILE_DEFINITIONS "_K_BUILD_NIGEL;_NIGEL_VERSION=\"${Nigel_Version}\";_K_WIN32;${DEBUG_DEFINES};NIGEL_MSVC"
 			VERSION ${Nigel_Version}
 		)
@@ -94,22 +91,22 @@ ELSEIF ( WIN32 )
 	# Others compilers specifics
 	ELSE ( MSVC )
 		SET_TARGET_PROPERTIES ( 
-				Nigel PROPERTIES
+				${NIGEL_LIBRARY} PROPERTIES
 				COMPILE_FLAGS -msse
 				COMPILE_DEFINITIONS "_K_BUILD_NIGEL;_NIGEL_VERSION=\"${Nigel_Version}\";_K_WIN32;${DEBUG_DEFINES}"
 				VERSION ${Nigel_Version}
 			)
 	ENDIF ( MSVC )
-	TARGET_LINK_LIBRARIES ( Nigel Kore ${QT_QTCORE_LIBRARY} )
+	TARGET_LINK_LIBRARIES ( ${NIGEL_LIBRARY} Kore ${QT_QTCORE_LIBRARY} )
 # Linux specifics
 ELSEIF ( UNIX )
 	SET_TARGET_PROPERTIES ( 
-		Nigel PROPERTIES
+		${NIGEL_LIBRARY} PROPERTIES
 		COMPILE_FLAGS -msse
 		COMPILE_DEFINITIONS "_K_BUILD_NIGEL;_NIGEL_VERSION=\"${Nigel_Version}\";_K_UNIX;${DEBUG_DEFINES}"
 		VERSION ${Nigel_Version}
 	)
-	TARGET_LINK_LIBRARIES ( Nigel Kore ${QT_QTCORE_LIBRARY} )
+	TARGET_LINK_LIBRARIES ( ${NIGEL_LIBRARY} Kore ${QT_QTCORE_LIBRARY} )
 ENDIF ( APPLE )
 
 # Documentation

@@ -59,27 +59,6 @@ class NigelExport Asset
  	public Nigel::COLLADA::extra::IExtrasCollection
 {
 	Q_OBJECT
-
-	Q_PROPERTY(QDateTime createdDateDisplay READ createdDateDisplay STORED false DESIGNABLE true)
-	Q_PROPERTY(QDateTime createdDate READ createdDate WRITE createdDate STORED true DESIGNABLE false)
-
-	Q_PROPERTY(QDateTime modifiedDateDisplay READ modifiedDateDisplay NOTIFY modifiedDateChanged STORED false DESIGNABLE true)
-	Q_PROPERTY(QDateTime modifiedDate READ modifiedDate WRITE modifiedDate STORED true DESIGNABLE false)
-
-	Q_PROPERTY(QString revision READ revision WRITE revision NOTIFY revisionChanged STORED true DESIGNABLE true)
-
-	Q_PROPERTY(QStringList keywords READ keywords WRITE keywords NOTIFY keywordsChanged STORED true DESIGNABLE true)
-
-	Q_PROPERTY(QString subject READ subject WRITE subject NOTIFY subjectChanged STORED true DESIGNABLE true)
-
-	Q_PROPERTY(QString title READ title WRITE title NOTIFY titleChanged STORED true DESIGNABLE true)
-
-	Q_PROPERTY(QString unitName READ unitName WRITE unitName NOTIFY unitNameChanged STORED true DESIGNABLE true)
-
-	Q_PROPERTY(float unitValue READ unitValue WRITE unitValue NOTIFY unitValueChanged STORED true DESIGNABLE true)
-
-	Q_PROPERTY(int upAxis READ upAxis WRITE upAxisInt STORED true DESIGNABLE false)
-
 	K_BLOCK
 
 	friend class Contributor;
@@ -130,6 +109,8 @@ private:
 	 *
 	 * The created date is the date of this Asset creation.
 	 */
+	Q_PROPERTY(QDateTime createdDateDisplay READ createdDateDisplay STORED false DESIGNABLE true)
+	Q_PROPERTY(QDateTime createdDate READ createdDate WRITE createdDate NOTIFY createdDateChanged STORED true DESIGNABLE false)
 	void createdDate(const QDateTime& date);
 	const QDateTime& createdDate() const;
 	QDateTime createdDateDisplay() const;
@@ -140,6 +121,8 @@ public:
 	 *
 	 * The modified date is the date of the modification on this Asset.
 	 */
+	Q_PROPERTY(QDateTime modifiedDateDisplay READ modifiedDateDisplay NOTIFY modifiedDateChanged STORED false DESIGNABLE true)
+	Q_PROPERTY(QDateTime modifiedDate READ modifiedDate WRITE modifiedDate STORED true DESIGNABLE false)
 	void modifiedDate(const QDateTime& date);
 private:
 	const QDateTime& modifiedDate() const;
@@ -150,6 +133,7 @@ private:
 	 *
 	 * Some keyboards associated to the Asset.
 	 */
+	Q_PROPERTY(QStringList keywords READ keywords WRITE keywords NOTIFY keywordsChanged STORED true DESIGNABLE true)
 	void keywords(const QStringList& keywords);
 	const QStringList& keywords() const;
 
@@ -158,6 +142,7 @@ private:
 	 *
 	 * Revision of the Asset.
 	 */
+	Q_PROPERTY(QString revision READ revision WRITE revision NOTIFY revisionChanged STORED true DESIGNABLE true)
 	void revision(const QString& revison);
 	const QString& revision() const;
 
@@ -166,6 +151,7 @@ private:
 	 *
 	 * Subject of the Asset.
 	 */
+	Q_PROPERTY(QString subject READ subject WRITE subject NOTIFY subjectChanged STORED true DESIGNABLE true)
 	void subject(const QString& subject);
 	const QString& subject() const;
 
@@ -174,6 +160,8 @@ private:
 	 *
 	 * Title of the Asset.
 	 */
+
+	Q_PROPERTY(QString title READ title WRITE title NOTIFY titleChanged STORED true DESIGNABLE true)
 	void title(const QString& title);
 	const QString& title() const;
 
@@ -182,6 +170,8 @@ private:
 	 *
 	 * Type of the unit used by the Asset for the coordinates.
 	 */
+
+	Q_PROPERTY(QString unitName READ unitName WRITE unitName NOTIFY unitNameChanged STORED true DESIGNABLE true)
 	void unitName(const QString& name);
 	const QString& unitName() const;
 
@@ -190,6 +180,8 @@ private:
 	 *
 	 * Value of the unit used by the Asset for the coordinates.
 	 */
+
+	Q_PROPERTY(float unitValue READ unitValue WRITE unitValue NOTIFY unitValueChanged STORED true DESIGNABLE true)
 	void unitValue(kfloat value);
 	kfloat unitValue() const;
 
@@ -198,6 +190,7 @@ private:
 	 *
 	 * Axis used by the Asset for the coordinates.
 	 */
+	Q_PROPERTY(Nigel::COLLADA::asset::Asset::UpAxis upAxis READ upAxis WRITE upAxis NOTIFY upAxisChanged STORED true DESIGNABLE true)
 	void upAxis(UpAxis upAxis);
 	UpAxis upAxis() const;
 
@@ -206,6 +199,8 @@ private:
 	 *
 	 * Longitude where the Asset was set.
 	 */
+
+	Q_PROPERTY(float longitude READ longitude WRITE longitude NOTIFY longitudeChanged STORED true DESIGNABLE true)
 	void longitude(kfloat longitude);
 	kfloat longitude() const;
 
@@ -214,6 +209,7 @@ private:
 	 *
 	 * Latitude where the Asset was set.
 	 */
+	Q_PROPERTY(float latitude READ latitude WRITE latitude NOTIFY latitudeChanged STORED true DESIGNABLE true)
 	void latitude(kfloat latitude);
 	kfloat latitude() const;
 
@@ -222,6 +218,7 @@ private:
 	 *
 	 * Altitude where the Asset was set.
 	 */
+	Q_PROPERTY(float altitudeValue READ altitudeValue WRITE altitudeValue NOTIFY altitudeValueChanged STORED true DESIGNABLE true)
 	void altitudeValue(kfloat altitude);
 	kfloat altitudeValue() const;
 
@@ -230,10 +227,12 @@ private:
 	 *
 	 * Altitude mode used the Asset.
 	 */
+	Q_PROPERTY(Nigel::COLLADA::asset::Asset::AltitudeMode altitudeMode READ altitudeMode WRITE altitudeMode NOTIFY altitudeModeChanged STORED true DESIGNABLE true)
 	void altitudeMode(AltitudeMode mode);
 	AltitudeMode altitudeMode() const;
 
 signals:
+	void createdDateChanged(const QDateTime& date);
 	void modifiedDateChanged(const QDateTime& date);
 	void keywordsChanged(const QStringList&);
 	void revisionChanged(const QString&);
@@ -241,9 +240,14 @@ signals:
 	void titleChanged(const QString&);
 	void unitNameChanged(const QString&);
 	void unitValueChanged(kfloat);
+	void upAxisChanged(UpAxis);
+	void latitudeChanged(kfloat);
+	void longitudeChanged(kfloat);
+	void altitudeValueChanged(kfloat);
+	void altitudeModeChanged(AltitudeMode);
 
 public:
-	void initialize();
+	virtual void initialize();
 	virtual Kore::data::Library* toLibrary() { return this; }
 	virtual Nigel::COLLADA::Element* toElement() { return this; }
 	virtual Nigel::COLLADA::extra::IExtrasCollection* toExtrasCollection() { return this; }
@@ -254,7 +258,6 @@ protected:
 	virtual kint elementsOffset(Nigel::COLLADA::extra::Extra*) const;
 
 private:
-	void upAxisInt(int);
 	static QVariant ElementProperty(kint property);
 
 private:

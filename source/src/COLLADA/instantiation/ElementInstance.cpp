@@ -47,7 +47,6 @@ using namespace Kore;
 ElementInstance::ElementInstance()
 : 	_instantiatedElement(K_NULL)
 {
-	connect(this, SIGNAL(resolved()), SIGNAL(blockChanged()));
 }
 
 QString ElementInstance::instanceName() const

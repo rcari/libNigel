@@ -42,8 +42,6 @@ Element::Element()
 {
 	// All elements are serializable.
 	addFlag(Block::Serializable);
-	// When the block changes, the element changes...
-	connect(this, SIGNAL(blockChanged()), SIGNAL(elementChanged()));
 }
 
 void Element::library(Library* lib)

@@ -65,6 +65,8 @@ Asset::Asset()
 
 void Asset::initialize()
 {
+	Block::initialize();
+
 	// Set the current datetime to now (UTC) by default.
 	createdDate(QDateTime::currentDateTimeUtc());
 
@@ -94,7 +96,7 @@ void Asset::library(Kore::data::Library* lib)
 void Asset::createdDate(const QDateTime& date)
 {
 	_createdDate = date;
-	emit blockChanged();
+	emit createdDateChanged(date);
 }
 
 const QDateTime& Asset::createdDate() const
@@ -192,7 +194,7 @@ kfloat Asset::unitValue() const
 void Asset::upAxis(UpAxis upAxis)
 {
 	_upAxis = upAxis;
-	emit blockChanged();
+	emit upAxisChanged(upAxis);
 }
 
 Asset::UpAxis Asset::upAxis() const
@@ -200,16 +202,10 @@ Asset::UpAxis Asset::upAxis() const
 	return _upAxis;
 }
 
-void Asset::upAxisInt(int up)
-{
-	_upAxis = (UpAxis)up;
-	emit blockChanged();
-}
-
 void Asset::longitude(kfloat longitude)
 {
 	_longitude = longitude;
-	emit blockChanged();
+	emit longitudeChanged(longitude);
 }
 
 kfloat Asset::longitude() const
@@ -220,7 +216,7 @@ kfloat Asset::longitude() const
 void Asset::latitude(kfloat latitude)
 {
 	_latitude = latitude;
-	emit blockChanged();
+	emit latitudeChanged(latitude);
 }
 
 kfloat Asset::latitude() const
@@ -231,7 +227,7 @@ kfloat Asset::latitude() const
 void Asset::altitudeValue(kfloat altitude)
 {
 	_altitudeValue = altitude;
-	emit blockChanged();
+	emit altitudeValueChanged(altitude);
 }
 
 kfloat Asset::altitudeValue() const
@@ -242,7 +238,7 @@ kfloat Asset::altitudeValue() const
 void Asset::altitudeMode(AltitudeMode mode)
 {
 	_altitudeMode = mode;
-	emit blockChanged();
+	emit altitudeModeChanged(mode);
 }
 
 Asset::AltitudeMode Asset::altitudeMode() const
@@ -270,7 +266,7 @@ QVariant Asset::ElementProperty(kint property)
 	switch(property)
 	{
 	case Block::BlockTypeName:
-		return QString(tr("Asset"));
+		return tr("Asset");
 	case Block::BlockPropertiesName:
 		{
 			QHash<QString,QVariant> propertiesName;

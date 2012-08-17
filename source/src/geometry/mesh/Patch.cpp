@@ -172,7 +172,6 @@ end:
 
 kint Patch::insertVertices(kint offset, kint number)
 {
-	mutex()->lock();
 	_changingLocalVertices = true;
 
 	// Update the indices of the patch.
@@ -200,12 +199,10 @@ void Patch::doneInsertingVertices(kint offset, kint number)
 {
 	mesh()->verticesBuffer()->doneInsertingVertices( _verticesOffset + offset, number );
 	_changingLocalVertices = false;
-	mutex()->unlock();
 }
 
 kint Patch::appendVertices(kint number)
 {
-	mutex()->lock();
 	_changingLocalVertices = true;
 
 	// Do that BEFORE adding memory in the _verticesData Vector.
@@ -221,12 +218,10 @@ void Patch::doneAppendingVertices(kint number)
 {
 	mesh()->verticesBuffer()->doneInsertingVertices( _verticesOffset + _verticesData.size() - number, number );
 	_changingLocalVertices = false;
-	mutex()->unlock();
 }
 
 void Patch::removeVertices(kint offset, kint number)
 {
-	mutex()->lock();
 	_changingLocalVertices = true;
 
 	// Update the indices of the patch.
@@ -251,7 +246,6 @@ void Patch::doneRemovingVertices(kint offset, kint number)
 {
 	mesh()->verticesBuffer()->doneRemovingVertices( _verticesOffset + offset, number );
 	_changingLocalVertices = false;
-	mutex()->unlock();
 }
 
 void Patch::insertingVerticesInBuffer(kint offset, kint number)

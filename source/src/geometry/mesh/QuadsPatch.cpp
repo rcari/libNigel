@@ -66,7 +66,6 @@ kint QuadsPatch::prevEdgeIndex(kint edgeIndex) const
 
 kint QuadsPatch::appendQuads(kint number)
 {
-	mutex()->lock();
 	emit appendingFaces(number);
 
 	_quads.insert(
@@ -96,12 +95,10 @@ void QuadsPatch::doneAppendingQuads(kint number)
 	// Set the edges.
 	initializeEdges(_quads.size() - number, number);
 	emit doneAppendingFaces(number);
-	mutex()->unlock();
 }
 
 void QuadsPatch::insertQuads(kint offset, kint nb)
 {
-	mutex()->lock();
 	emit insertingFaces(offset, nb);
 
 	_quads.insert(
@@ -128,12 +125,10 @@ void QuadsPatch::doneInsertingQuads(kint offset, kint nb)
 	// Set the edges
 	initializeEdges(offset, nb);
 	emit doneInsertingFaces(offset, nb);
-	mutex()->unlock();
 }
 
 void QuadsPatch::updatingQuads(kint offset, kint nb)
 {
-	mutex()->lock();
 	emit updatingFaces(offset, nb);
 }
 
@@ -142,12 +137,10 @@ void QuadsPatch::doneUpdatingQuads(kint offset, kint nb)
 	// Set the edges
 	initializeEdges(offset, nb);
 	emit doneUpdatingFaces(offset, nb);
-	mutex()->unlock();
 }
 
 void QuadsPatch::removeQuads(kint offset, kint nb)
 {
-	mutex()->lock();
 	emit removingFaces(offset, nb);
 
 	_quads.remove(offset, nb);
@@ -158,7 +151,6 @@ void QuadsPatch::removeQuads(kint offset, kint nb)
 void QuadsPatch::doneRemovingQuads(kint offset, kint nb)
 {
 	emit doneRemovingFaces(offset, nb);
-	mutex()->unlock();
 }
 
 void QuadsPatch::initializeEdges(kint facesOffset, kint facesNumber)

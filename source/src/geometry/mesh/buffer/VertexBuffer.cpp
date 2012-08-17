@@ -141,7 +141,6 @@ QList<kint> VertexBuffer::mergeVerticesIndices(const QList<kint>& v1, const QLis
 
 void VertexBuffer::bindVertices(const QList<kint>& verticesIndices, kbool doCleanList)
 {
-	QMutexLocker locker(mutex());
 	QList<kint> vertices;
 	if(doCleanList)
 	{
@@ -163,7 +162,6 @@ void VertexBuffer::bindVertices(const QList<kint>& verticesIndices, kbool doClea
 
 void VertexBuffer::setVerticesPosition(QList<kint> verticesIndices, const vec4f& position)
 {
-	QMutexLocker locker(mutex());
 	// Vertices MUST be ORDERED !
 	int offset = verticesIndices.first();
 	int range = verticesIndices.last() - offset;
@@ -181,7 +179,6 @@ void VertexBuffer::setVerticesPosition(QList<kint> verticesIndices, const vec4f&
 
 void VertexBuffer::moveVertices(QList<kint> verticesIndices, const vec4f& direction)
 {
-	QMutexLocker locker(mutex());
 	// Vertices MUST be ORDERED !
 	int offset = verticesIndices.first();
 	int range = verticesIndices.last() - offset;
@@ -199,7 +196,6 @@ void VertexBuffer::moveVertices(QList<kint> verticesIndices, const vec4f& direct
 
 Nigel::geometry::mesh::Vertex* VertexBuffer::insertVertices(kint offset, kint number)
 {
-	mutex()->lock();
 	emit insertingElements(offset, number);
 	_vertices.insert(offset, number, mesh::Vertex());
 	_verticesData.insert(offset, number, SharedVertexData());
@@ -209,12 +205,10 @@ Nigel::geometry::mesh::Vertex* VertexBuffer::insertVertices(kint offset, kint nu
 void VertexBuffer::doneInsertingVertices(kint offset, kint number)
 {
 	emit doneInsertingElements(offset, number);
-	mutex()->unlock();
 }
 
 Nigel::geometry::mesh::Vertex* VertexBuffer::updateVertices(kint offset, kint number)
 {
-	mutex()->lock();
 	emit updatingElements(offset, number);
 	return _vertices.data() + offset;
 }
@@ -222,12 +216,10 @@ Nigel::geometry::mesh::Vertex* VertexBuffer::updateVertices(kint offset, kint nu
 void VertexBuffer::doneUpdatingVertices(kint offset, kint number)
 {
 	emit doneUpdatingElements(offset, number);
-	mutex()->unlock();
 }
 
 void VertexBuffer::removeVertices(kint offset, kint number)
 {
-	mutex()->lock();
 	emit removingElements(offset, number);
 	_vertices.remove(offset, number);
 	_verticesData.remove(offset, number);
@@ -236,7 +228,6 @@ void VertexBuffer::removeVertices(kint offset, kint number)
 void VertexBuffer::doneRemovingVertices(kint offset, kint number)
 {
 	emit doneRemovingElements(offset, number);
-	mutex()->unlock();
 }
 
 QByteArray VertexBuffer::verticesArray() const

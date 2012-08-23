@@ -17,7 +17,12 @@ INCLUDE( build/ModuleInfos.cmake )
 INCLUDE_DIRECTORIES( ${NIGEL_INCLUDES} )
 
 ### ------------- Nigel -------------
-SET ( Nigel_SRCS src/NigelApplication.cpp )
+SET (
+	Nigel_SRCS 
+	
+	src/NigelApplication.cpp
+	src/NigelModule.cpp
+)
 
 INCLUDE ( src/animation/sources.cmake )
 INCLUDE ( src/camera/sources.cmake )
@@ -36,6 +41,7 @@ SET (
 	
 	inc/NigelApplication.hpp
 	inc/NigelExport.hpp
+	inc/NigelModule.hpp
 )
 SET ( Nigel_MOC_HDRS )
 

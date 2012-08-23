@@ -31,6 +31,8 @@
 using namespace Nigel::animation;
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE		Nigel::animation::AnimationInstance
 #define K_BLOCK_SUPER_TYPE 	Nigel::COLLADA::instantiation::ElementInstance
 #include <BlockMacros.hpp>

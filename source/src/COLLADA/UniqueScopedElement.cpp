@@ -29,6 +29,8 @@
 #include <COLLADA/UniqueScopedElement.hpp>
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE		Nigel::COLLADA::UniqueScopedElement
 #define K_BLOCK_SUPER_TYPE 	Nigel::COLLADA::UniqueElement
 #include <BlockMacros.hpp>

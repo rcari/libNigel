@@ -30,6 +30,8 @@
 using namespace Nigel::fx::effect;
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::fx::effect::EffectsLibrary
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

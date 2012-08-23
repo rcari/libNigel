@@ -31,6 +31,8 @@
 using namespace Nigel::animation;
 using namespace Kore::data;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::animation::Animation
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

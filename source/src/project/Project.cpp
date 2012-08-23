@@ -39,6 +39,8 @@ using namespace Nigel::scene;
 #include <COLLADA/InstancesManager.hpp>
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::project::Project
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

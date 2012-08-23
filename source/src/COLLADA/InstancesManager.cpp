@@ -33,6 +33,8 @@
 using namespace Nigel::COLLADA;
 using namespace Kore::data;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::COLLADA::InstancesManager
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

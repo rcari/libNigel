@@ -46,6 +46,8 @@ using namespace Nigel::scene::transformation;
 
 using namespace Kore::data;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::scene::Node
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

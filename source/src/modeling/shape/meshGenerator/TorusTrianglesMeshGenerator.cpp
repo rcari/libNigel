@@ -44,6 +44,8 @@ using namespace Nigel::geometry::mesh::buffer;
 #include "../../../../inc/math/Math.hpp"
 using namespace Nigel::math;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::modeling::shape::meshGenerator::TorusTrianglesMeshGenerator
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

@@ -32,6 +32,8 @@
 using namespace Nigel::COLLADA;
 using namespace Nigel::COLLADA::asset;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::COLLADA::DocumentInstanceReference
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

@@ -30,6 +30,8 @@
 using namespace Nigel::scene::transformation;
 using namespace Nigel::math;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE		Nigel::scene::transformation::Rotation
 #define K_BLOCK_SUPER_TYPE	Nigel::scene::transformation::Transformation
 #include <BlockMacros.hpp>

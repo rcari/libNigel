@@ -29,6 +29,8 @@
 #include <geometry/mesh/TrianglesPatch.hpp>
 using namespace Nigel::geometry::mesh;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::geometry::mesh::TrianglesPatch
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

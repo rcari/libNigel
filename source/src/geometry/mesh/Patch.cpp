@@ -32,6 +32,8 @@ using namespace Nigel::geometry::mesh;
 #include <geometry/mesh/buffer/VertexBuffer.hpp>
 using namespace Nigel::geometry::mesh;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::geometry::mesh::Patch
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

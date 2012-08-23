@@ -30,6 +30,8 @@
 using namespace Nigel::camera;
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::camera::CamerasLibrary
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

@@ -30,6 +30,8 @@
 using namespace Nigel::geometry;
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE 		Nigel::geometry::GeometriesLibrary
 #define K_BLOCK_SUPER_TYPE 	Nigel::COLLADA::UniqueElement
 #include <BlockMacros.hpp>

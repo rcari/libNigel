@@ -36,6 +36,8 @@ using namespace Nigel::COLLADA::extra;
 
 using namespace Kore::data;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::geometry::Geometry
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

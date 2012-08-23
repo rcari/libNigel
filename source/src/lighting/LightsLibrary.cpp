@@ -31,6 +31,8 @@
 using namespace Nigel::lighting;
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE		Nigel::lighting::LightsLibrary
 #define K_BLOCK_SUPER_TYPE 	Nigel::COLLADA::UniqueElement
 #include <BlockMacros.hpp>

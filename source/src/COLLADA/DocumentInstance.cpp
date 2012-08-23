@@ -47,6 +47,8 @@ using namespace Kore;
 #include <QtCore/QDir>
 #include <QtCore/QtDebug>
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::COLLADA::DocumentInstance
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

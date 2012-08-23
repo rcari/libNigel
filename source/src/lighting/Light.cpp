@@ -29,6 +29,8 @@
 #include "../../inc/lighting/Light.hpp"
 using namespace Nigel::lighting;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::lighting::Light
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

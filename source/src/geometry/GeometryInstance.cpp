@@ -33,6 +33,8 @@ using namespace Nigel::geometry;
 #include <scene/Node.hpp>
 using namespace Nigel::scene;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE		Nigel::geometry::GeometryInstance
 #define K_BLOCK_SUPER_TYPE 	Nigel::COLLADA::instantiation::ElementInstance
 #include <BlockMacros.hpp>

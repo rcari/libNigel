@@ -29,6 +29,8 @@
 #include <COLLADA/data/FloatArray.hpp>
 using namespace Nigel::COLLADA::data;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::COLLADA::data::FloatArray
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

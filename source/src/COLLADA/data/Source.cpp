@@ -32,6 +32,8 @@
 using namespace Nigel::COLLADA::data;
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::COLLADA::data::Source
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

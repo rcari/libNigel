@@ -29,6 +29,8 @@
 #include <geometry/mesh/QuadsPatch.hpp>
 using namespace Nigel::geometry::mesh;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::geometry::mesh::QuadsPatch
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

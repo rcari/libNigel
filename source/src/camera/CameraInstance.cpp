@@ -34,6 +34,8 @@ using namespace Nigel::scene;
 
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE		Nigel::camera::CameraInstance
 #define K_BLOCK_SUPER_TYPE 	Nigel::COLLADA::instantiation::ElementInstance
 #include <BlockMacros.hpp>

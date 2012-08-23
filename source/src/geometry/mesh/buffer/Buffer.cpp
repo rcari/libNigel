@@ -31,6 +31,8 @@ using namespace Nigel::geometry::mesh::buffer;
 #include <geometry/mesh/Mesh.hpp>
 using namespace Nigel::geometry::mesh;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::geometry::mesh::buffer::Buffer
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

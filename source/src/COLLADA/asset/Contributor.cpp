@@ -34,6 +34,8 @@ using namespace Nigel::COLLADA::asset;
 
 #include <QtCore/QCoreApplication>
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::COLLADA::asset::Contributor
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

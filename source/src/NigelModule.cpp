@@ -26,63 +26,28 @@
  *
  */
 
-#include <scene/transformation/Scale.hpp>
-using namespace Nigel::scene::transformation;
-using namespace Nigel::math;
-
 #include <NigelModule.hpp>
+using namespace Nigel;
+using namespace Kore::plugin;
 
-#define K_BLOCK_TYPE		Nigel::scene::transformation::Scale
-#define K_BLOCK_SUPER_TYPE	Nigel::scene::transformation::Transformation
-#include <BlockMacros.hpp>
-K_BLOCK_BEGIN
-	K_BLOCK_ICON("nigel/images/icons/transformation.scale.png")
-	K_BLOCK_ALLOCABLE
-	K_BLOCK_PROPERTY_DEFAULT
-K_BLOCK_END
+K_MODULE_IMPL
 
-Scale::Scale()
-:	_weights(1.0f, 1.0f, 1.0f)
+QString NigelModule::name() const
 {
-	blockName(tr("Scale"));
+	return QLatin1String("libNigel");
 }
 
-Vector4f& Scale::weights()
+QString NigelModule::version() const
 {
-	return _weights;
+	return QLatin1String(_NIGEL_VERSION);
 }
 
-const Vector4f& Scale::weights() const
+QString NigelModule::author() const
 {
-	return _weights;
+	return QLatin1String("Moving Pixels Labs");
 }
 
-kfloat Scale::kx() const
+QString NigelModule::url() const
 {
-	return _weights.values().x;
-}
-
-void Scale::kx(kfloat kx)
-{
-	_weights.values().x = kx;
-}
-
-kfloat Scale::ky() const
-{
-	return _weights.values().y;
-}
-
-void Scale::ky(kfloat ky)
-{
-	_weights.values().y = ky;
-}
-
-kfloat Scale::kz() const
-{
-	return _weights.values().z;
-}
-
-void Scale::kz(kfloat kz)
-{
-	_weights.values().z = kz;
+	return QLatin1String("http://mp-labs.net");
 }

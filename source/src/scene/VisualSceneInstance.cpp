@@ -33,6 +33,8 @@ using namespace Nigel::COLLADA;
 
 using namespace Kore::data;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE 		Nigel::scene::VisualSceneInstance
 #define K_BLOCK_SUPER_TYPE 	Nigel::COLLADA::instantiation::ElementInstance
 #include <BlockMacros.hpp>

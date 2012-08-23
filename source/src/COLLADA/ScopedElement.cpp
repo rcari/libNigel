@@ -30,6 +30,8 @@
 #include <COLLADA/UniqueElement.hpp>
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE 		Nigel::COLLADA::ScopedElement
 #define K_BLOCK_SUPER_TYPE 	Nigel::COLLADA::Element
 #include <BlockMacros.hpp>

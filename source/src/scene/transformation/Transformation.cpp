@@ -33,6 +33,8 @@ using namespace Nigel::scene::transformation;
 using namespace Nigel::scene;
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::scene::transformation::Transformation
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

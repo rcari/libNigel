@@ -29,6 +29,8 @@
 #include "../../inc/camera/Camera.hpp"
 using namespace Nigel::camera;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::camera::Camera
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

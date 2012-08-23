@@ -30,6 +30,8 @@
 using namespace Nigel::fx::material;
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::fx::material::MaterialsLibrary
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

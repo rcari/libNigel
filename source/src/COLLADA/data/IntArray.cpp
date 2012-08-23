@@ -29,6 +29,8 @@
 #include <COLLADA/data/IntArray.hpp>
 using namespace Nigel::COLLADA::data;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::COLLADA::data::IntArray
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

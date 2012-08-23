@@ -31,6 +31,8 @@
 using namespace Nigel::animation;
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::animation::AnimationClipsLibrary
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

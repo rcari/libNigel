@@ -29,6 +29,8 @@
 #include <fx/material/Material.hpp>
 using namespace Nigel::fx::material;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::fx::material::Material
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

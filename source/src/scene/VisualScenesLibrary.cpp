@@ -30,6 +30,8 @@
 using namespace Nigel::scene;
 using namespace Nigel::COLLADA;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE		Nigel::scene::VisualScenesLibrary
 #define K_BLOCK_SUPER_TYPE 	Nigel::COLLADA::UniqueElement
 #include <BlockMacros.hpp>

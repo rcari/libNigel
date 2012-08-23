@@ -29,6 +29,8 @@
 #include <fx/effect/Effect.hpp>
 using namespace Nigel::fx::effect;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::fx::effect::Effect
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

@@ -29,6 +29,8 @@
 #include <fx/image/Image.hpp>
 using namespace Nigel::fx::image;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::fx::image::Image
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

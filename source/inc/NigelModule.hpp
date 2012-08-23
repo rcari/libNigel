@@ -1,5 +1,5 @@
 /*
- * 	Copyright (c) 2010-2011, Romuald CARI
+ * 	Copyright (c) 2010-2014, Romuald CARI
  *	All rights reserved.
  *
  *	Redistribution and use in source and binary forms, with or without
@@ -9,14 +9,14 @@
  *		* Redistributions in binary form must reproduce the above copyright
  *		  notice, this list of conditions and the following disclaimer in the
  *		  documentation and/or other materials provided with the distribution.
- *		* Neither the name of the <organization> nor the
+ *		* Neither the name of the Moving Pixels Labs nor the
  *		  names of its contributors may be used to endorse or promote products
  *		  derived from this software without specific prior written permission.
  *
  *	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  *	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  *	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- *	DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+ *	DISCLAIMED. IN NO EVENT SHALL Romuald CARI BE LIABLE FOR ANY
  *	DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
  *	(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
  *	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
@@ -26,63 +26,24 @@
  *
  */
 
-#include <scene/transformation/Scale.hpp>
-using namespace Nigel::scene::transformation;
-using namespace Nigel::math;
+#pragma once
 
-#include <NigelModule.hpp>
+#include <plugin/Module.hpp>
 
-#define K_BLOCK_TYPE		Nigel::scene::transformation::Scale
-#define K_BLOCK_SUPER_TYPE	Nigel::scene::transformation::Transformation
-#include <BlockMacros.hpp>
-K_BLOCK_BEGIN
-	K_BLOCK_ICON("nigel/images/icons/transformation.scale.png")
-	K_BLOCK_ALLOCABLE
-	K_BLOCK_PROPERTY_DEFAULT
-K_BLOCK_END
+namespace Nigel {
 
-Scale::Scale()
-:	_weights(1.0f, 1.0f, 1.0f)
+class NigelModule : public Kore::plugin::Module
 {
-	blockName(tr("Scale"));
+	K_MODULE
+
+public:
+	virtual QString name() const;
+	virtual QString author() const;
+	virtual QString url() const;
+	virtual QString version() const;
+};
+
 }
 
-Vector4f& Scale::weights()
-{
-	return _weights;
-}
-
-const Vector4f& Scale::weights() const
-{
-	return _weights;
-}
-
-kfloat Scale::kx() const
-{
-	return _weights.values().x;
-}
-
-void Scale::kx(kfloat kx)
-{
-	_weights.values().x = kx;
-}
-
-kfloat Scale::ky() const
-{
-	return _weights.values().y;
-}
-
-void Scale::ky(kfloat ky)
-{
-	_weights.values().y = ky;
-}
-
-kfloat Scale::kz() const
-{
-	return _weights.values().z;
-}
-
-void Scale::kz(kfloat kz)
-{
-	_weights.values().z = kz;
-}
+#define K_MODULE_TYPE Nigel::NigelModule
+#include <ModuleMacros.hpp>

@@ -40,6 +40,8 @@ using namespace Kore::data;
 using namespace Nigel::scene;
 using namespace Nigel::COLLADA::instantiation;
 
+#include <NigelModule.hpp>
+
 #define K_BLOCK_TYPE Nigel::project::Model
 #include <BlockMacros.hpp>
 K_BLOCK_BEGIN

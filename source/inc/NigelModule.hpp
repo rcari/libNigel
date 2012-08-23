@@ -32,9 +32,13 @@
 
 namespace Nigel {
 
+class NigelApplication;
+
 class NigelModule : public Kore::plugin::Module
 {
 	K_MODULE
+
+	friend class NigelApplication;
 
 public:
 	virtual QString name() const;

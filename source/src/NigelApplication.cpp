@@ -27,6 +27,7 @@
  */
 
 #include <NigelApplication.hpp>
+#include <NigelModule.hpp>
 using namespace Nigel;
 
 #include <math/MathEngine.hpp>
@@ -37,6 +38,10 @@ using namespace Kore;
 
 NigelApplication::NigelApplication(int argc, char** argv)
 {
+	qDebug("Nigel / Loading NigelApplication");
+
+	NigelModule::PrivateInstance()->load();
+
 	const_cast<Kore::data::Library*>(KoreApplication::Instance()->rootLibrary())->insertBlock(
 			MathEngine::Instance(),
 			KoreApplication::Instance()->dataLibrary()->index()

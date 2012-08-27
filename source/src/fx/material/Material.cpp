@@ -32,7 +32,7 @@ using namespace Nigel::fx::material;
 #include <NigelModule.hpp>
 
 #define K_BLOCK_TYPE Nigel::fx::material::Material
-#include <BlockMacros.hpp>
+#include <data/BlockMacros.hpp>
 K_BLOCK_BEGIN
 	K_BLOCK_ICON_DEFAULT
 	K_BLOCK_VIRTUAL

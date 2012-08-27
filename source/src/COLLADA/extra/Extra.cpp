@@ -35,7 +35,7 @@ using namespace Kore::data;
 #include <NigelModule.hpp>
 
 #define K_BLOCK_TYPE Nigel::COLLADA::extra::Extra
-#include <BlockMacros.hpp>
+#include <data/BlockMacros.hpp>
 K_BLOCK_BEGIN
 	K_BLOCK_ICON_DEFAULT
 	K_BLOCK_VIRTUAL

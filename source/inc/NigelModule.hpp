@@ -50,4 +50,4 @@ public:
 }
 
 #define K_MODULE_TYPE Nigel::NigelModule
-#include <ModuleMacros.hpp>
+#include <plugin/ModuleMacros.hpp>

@@ -34,7 +34,7 @@ using namespace Nigel::math;
 
 #define K_BLOCK_TYPE		Nigel::scene::transformation::Scale
 #define K_BLOCK_SUPER_TYPE	Nigel::scene::transformation::Transformation
-#include <BlockMacros.hpp>
+#include <data/BlockMacros.hpp>
 K_BLOCK_BEGIN
 	K_BLOCK_ICON("nigel/images/icons/transformation.scale.png")
 	K_BLOCK_ALLOCABLE

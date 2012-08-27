@@ -34,7 +34,7 @@ using namespace Nigel::COLLADA;
 
 #define K_BLOCK_TYPE 		Nigel::geometry::GeometriesLibrary
 #define K_BLOCK_SUPER_TYPE 	Nigel::COLLADA::UniqueElement
-#include <BlockMacros.hpp>
+#include <data/BlockMacros.hpp>
 K_BLOCK_BEGIN
 	K_BLOCK_ICON_DEFAULT
 	K_BLOCK_ALLOCABLE

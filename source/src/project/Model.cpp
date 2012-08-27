@@ -43,7 +43,7 @@ using namespace Nigel::COLLADA::instantiation;
 #include <NigelModule.hpp>
 
 #define K_BLOCK_TYPE Nigel::project::Model
-#include <BlockMacros.hpp>
+#include <data/BlockMacros.hpp>
 K_BLOCK_BEGIN
 	K_BLOCK_ICON("nigel/images/icons/model.png")
 	K_BLOCK_ALLOCABLE

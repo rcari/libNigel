@@ -33,7 +33,7 @@ using namespace Nigel::COLLADA;
 #include <NigelModule.hpp>
 
 #define K_BLOCK_TYPE Nigel::fx::image::ImagesLibrary
-#include <BlockMacros.hpp>
+#include <data/BlockMacros.hpp>
 K_BLOCK_BEGIN
 	K_BLOCK_ICON_DEFAULT
 	K_BLOCK_ALLOCABLE

@@ -33,7 +33,7 @@ using namespace Kore::data;
 #include <NigelModule.hpp>
 
 #define K_BLOCK_TYPE Nigel::COLLADA::Element
-#include <BlockMacros.hpp>
+#include <data/BlockMacros.hpp>
 K_BLOCK_BEGIN
 	K_BLOCK_ICON("nigel/images/icons/element.png")
 	K_BLOCK_VIRTUAL

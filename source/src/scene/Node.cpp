@@ -49,7 +49,7 @@ using namespace Kore::data;
 #include <NigelModule.hpp>
 
 #define K_BLOCK_TYPE Nigel::scene::Node
-#include <BlockMacros.hpp>
+#include <data/BlockMacros.hpp>
 K_BLOCK_BEGIN
 	K_BLOCK_ICON("nigel/images/icons/scene.node.png")
 	K_BLOCK_ALLOCABLE

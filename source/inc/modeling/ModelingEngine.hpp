@@ -37,4 +37,4 @@
 	Nigel::modeling::shape::Shape* n_shape::__N_Instance = K_NULL;\
 	kbool n_shape::__N_Registered = Nigel::modeling::shape::ShapeManager::RegisterShape(n_shape::Instance());
 
-#define N_GENERATOR_I( n_generator, n_shape ) kbool n_generator::__N_Registered = n_shape::RegisterGenerator( n_generator::StaticMetaBlock()->createBlockT<Nigel::modeling::shape::Generator>() );
+#define N_GENERATOR_I( n_generator, n_shape ) kbool n_generator::__N_Registered = n_shape::RegisterGenerator( n_generator::StaticMetaBlock()->instantiateT<Nigel::modeling::shape::Generator>() );

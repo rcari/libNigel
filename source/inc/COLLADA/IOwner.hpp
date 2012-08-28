@@ -28,7 +28,6 @@
 
 #pragma once
 
-#include <data/BlockFactory.hpp>
 #include <data/Library.hpp>
 
 namespace Nigel { namespace COLLADA {

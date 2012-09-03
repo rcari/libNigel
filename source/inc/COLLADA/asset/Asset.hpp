@@ -1,5 +1,5 @@
 /*
- * 	Copyright (c) 2010-2011, Christophe EVENO
+ * 	Copyright (c) 2010-2011, Romuald CARI
  *	All rights reserved.
  *
  *	Redistribution and use in source and binary forms, with or without
@@ -59,6 +59,9 @@ class NigelExport Asset
  	public Nigel::COLLADA::extra::IExtrasCollection
 {
 	Q_OBJECT
+	Q_ENUMS(UpAxis)
+	Q_ENUMS(AltitudeMode)
+
 	K_BLOCK
 
 	friend class Contributor;
@@ -83,8 +86,8 @@ public:
 	 */
 	enum AltitudeMode
 	{
-		RelativeToGround,	//!< All coordinates are relative to the ground.
-		Absolute,			//!< All coordinates are absolute.
+		RelativeToGround = 0,	//!< All coordinates are relative to the ground.
+		Absolute,				//!< All coordinates are absolute.
 	};
 
 private:
@@ -160,7 +163,6 @@ private:
 	 *
 	 * Title of the Asset.
 	 */
-
 	Q_PROPERTY(QString title READ title WRITE title NOTIFY titleChanged STORED true DESIGNABLE true)
 	void title(const QString& title);
 	const QString& title() const;
@@ -170,7 +172,6 @@ private:
 	 *
 	 * Type of the unit used by the Asset for the coordinates.
 	 */
-
 	Q_PROPERTY(QString unitName READ unitName WRITE unitName NOTIFY unitNameChanged STORED true DESIGNABLE true)
 	void unitName(const QString& name);
 	const QString& unitName() const;
@@ -180,7 +181,6 @@ private:
 	 *
 	 * Value of the unit used by the Asset for the coordinates.
 	 */
-
 	Q_PROPERTY(float unitValue READ unitValue WRITE unitValue NOTIFY unitValueChanged STORED true DESIGNABLE true)
 	void unitValue(kfloat value);
 	kfloat unitValue() const;
@@ -199,7 +199,6 @@ private:
 	 *
 	 * Longitude where the Asset was set.
 	 */
-
 	Q_PROPERTY(float longitude READ longitude WRITE longitude NOTIFY longitudeChanged STORED true DESIGNABLE true)
 	void longitude(kfloat longitude);
 	kfloat longitude() const;
@@ -261,27 +260,24 @@ private:
 	static QVariant ElementProperty(kint property);
 
 private:
-	QDateTime	_createdDate;
-	QDateTime	_modifiedDate;
-	QStringList	_keywords;
-	QString		_revision;
-	QString		_subject;
-	QString		_title;
-	QString		_unitName;
-	kfloat		_unitValue;
-	UpAxis		_upAxis;
-	kfloat		_longitude;
-	kfloat		_latitude;
-	kfloat		_altitudeValue;
+	QDateTime		_createdDate;
+	QDateTime		_modifiedDate;
+	QStringList		_keywords;
+	QString			_revision;
+	QString			_subject;
+	QString			_title;
+	QString			_unitName;
+	kfloat			_unitValue;
+	UpAxis			_upAxis;
+	kfloat			_longitude;
+	kfloat			_latitude;
+	kfloat			_altitudeValue;
 	AltitudeMode	_altitudeMode;
 };
 
 }}}
 
-Q_DECLARE_METATYPE(Nigel::COLLADA::asset::Asset::UpAxis)
-Q_DECLARE_METATYPE(Nigel::COLLADA::asset::Asset::AltitudeMode)
-
 #ifdef NIGEL_MSVC
-#include <COLLADA/asset/Contributor.hpp>
-#include <COLLADA/extra/Extra.hpp>
+#	include <COLLADA/asset/Contributor.hpp>
+#	include <COLLADA/extra/Extra.hpp>
 #endif

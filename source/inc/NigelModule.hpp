@@ -41,9 +41,6 @@ class NigelModule : public Kore::plugin::Module
 	friend class NigelApplication;
 
 public:
-	NigelModule();
-	virtual ~NigelModule();
-
 	virtual QString name() const;
 	virtual QString author() const;
 	virtual QString url() const;

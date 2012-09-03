@@ -278,6 +278,9 @@ private:
 
 }}}
 
+Q_DECLARE_METATYPE(Nigel::COLLADA::asset::Asset::UpAxis)
+Q_DECLARE_METATYPE(Nigel::COLLADA::asset::Asset::AltitudeMode)
+
 #ifdef NIGEL_MSVC
 #include <COLLADA/asset/Contributor.hpp>
 #include <COLLADA/extra/Extra.hpp>

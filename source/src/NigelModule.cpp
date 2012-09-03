@@ -32,6 +32,18 @@ using namespace Kore::plugin;
 
 K_MODULE_IMPL
 
+NigelModule::NigelModule()
+{
+	qRegisterMetaType("Nigel::COLLADA::asset::Asset::UpAxis");
+	qRegisterMetaType("Nigel::COLLADA::asset::Asset::AltitudeMode");
+}
+
+NigelModule::~NigelModule()
+{
+	qRegisterMetaType("Nigel::COLLADA::asset::Asset::UpAxis");
+	qRegisterMetaType("Nigel::COLLADA::asset::Asset::AltitudeMode");
+}
+
 QString NigelModule::name() const
 {
 	return QLatin1String("libNigel");
